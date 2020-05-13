@@ -37,17 +37,20 @@ while True:
         gyro=sensor.read_gyro()
         accel=sensor.read_acceleration()
         magnetic=sensor.read_magnetic()
+        temperature = imu.read_temperature()
 
 	json_serial = "\"serial\":\""+str(serial)+"\","
 	json_gyro = "\"gyro\":\""+str(gyro)+"\","
 	json_accel = "\"accel\":\""+str(accel)+"\","
 	json_magnet = "\"magnetic\":\""+str(magnetic)+"\","
+	json_temperature = "\"temperature\":\""+str(temperature)+"\","
 	json_nmea = "\"nmea\":\"#GGA:W"+str(LON)+","+str(LAT)+"\""
 	json_string=json_sot\
 		+json_serial\
 		+json_gyro\
 		+json_accel\
 		+json_magnet\
+		+json_temperature\
 		+json_nmea\
 		+json_eot
 	print(json_string)

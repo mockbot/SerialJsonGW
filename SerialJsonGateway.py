@@ -13,6 +13,9 @@ connect ros-mqtt-bridge
 connect to donkeycar and simulator
 
 add more sensors: GPS,INA,HC04,RC channels,ADC
+add AHRS sensor fusion from raw imu values
+add odometry sensors, wheel tick counter 
+
 """
 
 import json

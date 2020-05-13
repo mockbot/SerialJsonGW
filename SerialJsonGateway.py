@@ -18,16 +18,26 @@ add odometry sensors, wheel tick counter
 
 """
 
+enable_mqtt=1
+enable_ros=0
+
 import json
 import random
 import time
 import serial
 import io
-import roslibpy
-import paho
+
+if enable_ros == 1:
+    import roslibpy
+
+if enable_mqtt == 1:
+   import paho.mqtt.publish as publish
+
+# MQTT-Broker address
+mqtt_broker="m17"
 
 
-print("JSON serial receiver Test")
+print("Serial JSON  Gateway")
 ser = serial.Serial('/dev/ttyACM0', timeout=1)
 sio = io.TextIOWrapper(io.BufferedRWPair(ser, ser))
 
@@ -47,5 +57,12 @@ while True:
         err=err+1
 
 
-
+    if enable_mqtt == 1:
+        try:
+            publish.single("/MM1/temperature", data["temperature"], hostname=mqtt_broker)
+            publish.single("/MM1/gyro", data["gyro"], hostname=mqtt_broker)
+            publish.single("/MM1/accel", data["accel"], hostname=mqtt_broker)
+            publish.single("/MM1/magnetic", data["magnetic"], hostname=mqtt_broker)
+        except:
+            print("ERROR: mqtt publish error !!!")
 

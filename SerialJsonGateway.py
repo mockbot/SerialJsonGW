@@ -17,9 +17,13 @@ add AHRS sensor fusion from raw imu values
 add odometry sensors, wheel tick counter 
 
 """
+enable_stdio=1  # enable loggin at console
 
-enable_mqtt=1
-enable_ros=0
+enable_mqtt=0   # enable mqtt-connector, set ip address of the mqtt_broker when you enable this feature
+mqtt_broker="m17" # address of the mqtt_broker
+
+enable_ros=0                # enable ros-connector, set ip address of the rosbridge_server when you enable this feature
+rosbridge_server="roscon"   # address of the rosbridge_server
 
 import json
 import random
@@ -51,7 +55,8 @@ while True:
     json_string = sio.readline()
     try:
         data = json.loads(json_string)
-        print(data["serial"],data["gyro"],data["accel"],data["magnetic"],data["temperature"],data["nmea"])
+        if enable_stdio == 1:
+           print(data["serial"],data["gyro"],data["accel"],data["magnetic"],data["temperature"],data["nmea"])
     except:
         print("ERROR:"+str(err)+" json decode error !!!")
         err=err+1

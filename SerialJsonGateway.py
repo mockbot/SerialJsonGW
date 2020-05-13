@@ -10,7 +10,7 @@ send configuration commands and PWM to GPIO
 connect roslibpy to websocket ros bridge and sent topics, test with RVIZ and PlotJuggler
 connect paho to mosquitto server 
 connect ros-mqtt-bridge
-connect to donkeycar 
+connect to donkeycar and simulator
 
 add more sensors: GPS,INA,HC04,RC channels,ADC
 """

@@ -1,5 +1,5 @@
 # SerialJsonGW
-Serial JSON Gateway - Draft - Learning by doing
+Serial JSON Gateway - Draft - Learning by doing - Proof of Concept study 
 
 Simple gateway for serial devices 
 

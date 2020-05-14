@@ -6,11 +6,12 @@ Date: 2020-05-10
 Version: 2020-05-12 2100
 
 Todo: 
+use capabilities from serial agent, request supported sensor/actuator features via JSON
 send configuration commands and PWM to GPIO
 connect roslibpy to websocket ros bridge and sent topics, test with RVIZ and PlotJuggler
 connect paho to mosquitto server 
 connect ros-mqtt-bridge and OpenHAB2
-connect to donkeycar and simulator
+connect to donkeycar and simulator PIPE/socket interface
 
 add more sensors: GPS,INA,HC04,RC channels,ADC
 add AHRS sensor fusion from raw imu values

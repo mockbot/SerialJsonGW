@@ -5,12 +5,15 @@ Author: Christian Mock
 Date: 2020-05-10
 Version: 2020-05-12 2100
 
-Todo: 
+Todo:Progress 
 use capabilities from serial agent, request supported sensor/actuator features via JSON
 send configuration commands and PWM to GPIO
+
+connector routing feature
+
 connect roslibpy to websocket ros bridge and sent topics, test with RVIZ and PlotJuggler
-connect paho to mosquitto server 
-connect ros-mqtt-bridge and OpenHAB2
+connect paho to mosquitto server DONE
+connect ros-mqtt-bridge and OpenHAB2 DONE
 connect to donkeycar and simulator PIPE/socket interface
 
 add more sensors: GPS,INA,HC04,RC channels,ADC

@@ -6,6 +6,7 @@ Date: 2020-05-10
 Version: 2020-05-12 2100
 
 Todo:Progress 
+separate program and configuration features
 use capabilities from serial agent, request supported sensor/actuator features via JSON
 send configuration commands and PWM to GPIO
 

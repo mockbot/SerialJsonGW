@@ -22,7 +22,7 @@ add AHRS sensor fusion from raw imu values
 add odometry sensors, wheel tick counter 
 
 """
-enable_stdio=1  # enable loggin at console
+enable_stdio=0  # enable logging at console
 
 enable_mqtt=0   # enable mqtt-connector, set ip address of the mqtt_broker when you enable this feature
 mqtt_broker="m17" # address of the mqtt_broker
@@ -36,19 +36,27 @@ import time
 import serial
 import io
 
-if enable_ros == 1:
+if enable_ros == 0:
     import roslibpy
 
-if enable_mqtt == 1:
+if enable_mqtt == 0:
    import paho.mqtt.publish as publish
 
 # MQTT-Broker address
 mqtt_broker="m17"
 
 
-print("Serial JSON  Gateway")
+print("Serial JSON Gateway")
 ser = serial.Serial('/dev/ttyACM0', timeout=1)
 sio = io.TextIOWrapper(io.BufferedRWPair(ser, ser))
+
+json_string = sio.readline()
+try:
+    data = json.loads(json_string)
+    print("Capabitlity/features: "+data["capability"])
+except:
+    print("ERROR: no capabilities available")
+
 
 #sio.write(unicode("\n"))
 #sio.flush() # it is buffering. required to get the data out *now*

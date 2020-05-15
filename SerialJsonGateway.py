@@ -22,7 +22,7 @@ add AHRS sensor fusion from raw imu values
 add odometry sensors, wheel tick counter 
 
 """
-enable_stdio=0  # enable logging at console
+enable_stdio=1  # enable logging at console
 
 enable_mqtt=0   # enable mqtt-connector, set ip address of the mqtt_broker when you enable this feature
 mqtt_broker="m17" # address of the mqtt_broker
@@ -69,7 +69,7 @@ while True:
     try:
         data = json.loads(json_string)
         if enable_stdio == 1:
-           print(data["serial"],data["gyro"],data["accel"],data["magnetic"],data["temperature"],data["nmea"])
+           print(data["serial"],data["gyro"],data["accel"],data["magnetic"],data["temperature"],data["vshunt"],data["vbus"],data["current"],data["nmea"])
     except:
         print("ERROR:"+str(err)+" json decode error !!!")
         err=err+1
